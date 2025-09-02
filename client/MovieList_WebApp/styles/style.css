@@ -1,0 +1,112 @@
+.dropdown {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .dropdown-toggle {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            appearance: none;
+            font-size: 1.5rem;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: -10px; /* Adjust the top position to move it up */
+            right: 0;
+            z-index: 1;
+            min-width: 12rem;
+            padding: 0.5rem 0;
+            margin: 0;
+            list-style: none;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            display: none; /* Initially hidden */
+        }
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: 100%; /* Position the triangle at the top */
+            right: 10px; /* Align the triangle with the dropdown menu */
+            border-style: solid;
+            border-width: 10px 10px 0 10px;
+            border-color: #fff transparent transparent transparent;
+        }
+
+        .dropdown-menu a {
+            padding: 0.25rem 1rem;
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Smooth scrolling effect */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Dark mode specific styles */
+        body.dark {
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav {
+    background-color: #1a202c; /* Dark background */
+    color: #1a202c; /* Light text */
+}
+.dark nav {
+    background-color: #2d3748; /* Darker background for dark mode */
+    color: #e2e8f0;
+}
+.plus{
+    font-weight: bold;
+}
+
+        /* Modal background adjustments for dark mode */
+        .dark .modal-content {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+
+        /* Styling for the search bar */
+input[type="text"] {
+    width: 300px; /* Set the width of the search bar */
+    padding: 10px 15px; /* Add padding for a comfortable feel */
+    border-radius: 25px; /* Make the corners rounded */
+    border: 2px solid #ddd; /* Light border color */
+    outline: none; /* Remove default outline */
+    transition: all 0.3s ease; /* Smooth transition for effects */
+    font-size: 16px; /* Increase font size */
+    color: #333; /* Dark text color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Add focus effects for when the user interacts with the search bar */
+input[type="text"]:focus {
+    border-color: #3182ce; /* Change border color to blue on focus */
+    box-shadow: 0 6px 12px rgba(49, 130, 206, 0.2); /* Enhance shadow */
+}
+
+/* Placeholder text styling */
+input[type="text"]::placeholder {
+    color: #888; /* Light gray placeholder text */
+    font-style: italic; /* Italicize placeholder */
+}
+
+/* Optional: Add a search icon inside the search bar */
+input[type="text"] {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23888" width="16" height="16" viewBox="0 0 24 24"><path d="M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16m0-2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm9.21 15.79a1 1 0 1 1-1.42 1.42l-3.79-3.79A9.958 9.958 0 0 1 10 20a10 10 0 1 1 10-10c0 2.39-.82 4.59-2.18 6.38l3.79 3.79z"/></svg>');
+    background-size: 16px 16px; /* Size the icon appropriately */
+    background-repeat: no-repeat; /* Prevent the icon from repeating */
+    background-position: 10px center; /* Position the icon */
+    padding-left: 35px; /* Add padding to make space for the icon */
+}
