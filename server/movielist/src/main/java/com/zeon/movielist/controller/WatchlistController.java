@@ -14,12 +14,12 @@ public class WatchlistController {
     @Autowired
     private WatchlistService watchlistService;
 
-    @PostMapping
-    public WatchlistDto addMovie(@RequestBody WatchlistDto watchlistDto) {
-        return watchlistService.addMovie(watchlistDto);
-    }
+//    @PostMapping
+//    public WatchlistDto addMovie(@RequestBody WatchlistDto watchlistDto) {
+//        return watchlistService.addMovie(watchlistDto);
+//    }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<WatchlistDto> getAllMovies() {
         return watchlistService.getAllMovies();
     }
