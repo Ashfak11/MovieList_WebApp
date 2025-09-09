@@ -8,7 +8,8 @@ public class WatchlistMapper {
     // DTO -> Entity
     public static Watchlist toEntity(WatchlistDto dto) {
         return Watchlist.builder() // if you add @Builder to Watchlist
-                .id(dto.getId())
+//                .id(dto.getId())
+//                .tmdbId(dto.getTmdbId())
                 .title(dto.getTitle())
                 .overview(dto.getOverview())
                 .posterPath(dto.getPosterPath())
@@ -20,7 +21,8 @@ public class WatchlistMapper {
     // Entity -> DTO
     public static WatchlistDto toDto(Watchlist entity) {
         return WatchlistDto.builder()
-                .id(entity.getId())
+//                .id(entity.getId())
+//                .tmdbId(entity.getTmdbId())
                 .title(entity.getTitle())
                 .overview(entity.getOverview())
                 .posterPath(entity.getPosterPath())

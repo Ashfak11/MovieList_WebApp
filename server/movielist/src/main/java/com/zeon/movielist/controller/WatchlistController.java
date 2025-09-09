@@ -2,31 +2,38 @@ package com.zeon.movielist.controller;
 
 import com.zeon.movielist.dto.WatchlistDto;
 import com.zeon.movielist.service.WatchlistService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/watchlist")
+@RestController //This class will handle HTTP requests and return data (usually JSON)
+@RequestMapping("/api/watchlist") //Global URl thing kind of
+@RequiredArgsConstructor
 public class WatchlistController {
 
     @Autowired
-    private WatchlistService watchlistService;
+    private WatchlistService watchlistService; //private cause it keeps things encapsulated
 
-//    @PostMapping
-//    public WatchlistDto addMovie(@RequestBody WatchlistDto watchlistDto) {
-//        return watchlistService.addMovie(watchlistDto);
-//    }
+    @PostMapping("/add")
+    public WatchlistDto addMovie(@RequestBody WatchlistDto watchlistDto) {
+        return watchlistService.addMovie(watchlistDto.getTmdbId());
+    }
 
     @GetMapping("/all")
     public List<WatchlistDto> getAllMovies() {
         return watchlistService.getAllMovies();
     }
 
-    @GetMapping("/{id}")
-    public WatchlistDto getMovieById(@PathVariable Long id) {
-        return watchlistService.getMovieById(id);
+    @DeleteMapping("/{id}")
+    public void deleteMovie(@PathVariable Long id) {
+        watchlistService.deleteMovie(id);
+    }
+
+    @DeleteMapping("/clear")
+    public void clearWatchlist() {
+        watchlistService.clearWatchlist();
     }
 
     @PutMapping("/{id}")
@@ -34,8 +41,11 @@ public class WatchlistController {
         return watchlistService.updateMovie(id, watchlistDto);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteMovie(@PathVariable Long id) {
-        watchlistService.deleteMovie(id);
-    }
+
+//    @GetMapping("/{id}")
+//    public WatchlistDto getMovieById(@PathVariable Long id) {
+//        return watchlistService.getMovieById(id);
+//    }
+//
 }
+
